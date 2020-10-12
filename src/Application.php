@@ -52,6 +52,7 @@ class Application
 		$app=$this->manager->getContainer();
 		$app->instance('db',$this->manager->getDatabaseManager());
 		Facade::setFacadeApplication($app);
+		$this->manager->setAsGlobal();
 		$this->manager->setEventDispatcher(new Dispatcher($app));
 		$this->manager->bootEloquent();
 	}
@@ -70,5 +71,22 @@ class Application
 			static::$instance->setupEloquent();
 		}
 		return static::$instance;
+	}
+	public function getCapsule(){
+		return $this->manager;
+	}
+	public static function getInstance(){
+		return static::$instance;
+	}
+	/**
+	 * Dynamically pass methods to the default connection.
+	 *
+	 * @param  string  $method
+	 * @param  array  $parameters
+	 * @return mixed
+	 */
+	public static function __callStatic($method, $parameters)
+	{
+		return static::$instance->getCapsule()->getConnection()->$method(...$parameters);
 	}
 }
