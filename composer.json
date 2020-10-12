@@ -2,10 +2,10 @@
     "name": "as247/fact",
     "description": "The Fact Database package.",
     "license": "MIT",
-    "homepage": "https://laravel.com",
+    "homepage": "https://github.com/as247/fact",
     "support": {
-        "issues": "https://github.com/laravel/framework/issues",
-        "source": "https://github.com/laravel/framework"
+        "issues": "https://github.com/as247/fact/issues",
+        "source": "https://github.com/as247/fact"
     },
     "keywords": ["laravel", "database", "sql", "orm", "as247"],
     "authors": [
