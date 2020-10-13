@@ -2,7 +2,7 @@
 
 namespace As247\Fact\Support;
 
-use Carbon\Carbon as BaseCarbon;
+use \As247\Fact\Carbon\Carbon as BaseCarbon;
 
 class Carbon extends BaseCarbon
 {
